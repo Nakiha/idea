@@ -1,0 +1,5 @@
+# 示例文件列表
+# 每行一个远程文件路径，支持 file:/// 协议
+file:///data/videos/source_001.mp4
+file:///data/videos/source_002.mp4
+file:///data/videos/source_003.mp4
