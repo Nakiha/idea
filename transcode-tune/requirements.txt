@@ -1,0 +1,5 @@
+requests>=2.28.0
+pyyaml>=6.0
+win11toast>=0.3; sys_platform == 'win32'
+# 或者用这个作为备选
+# win10toast>=0.9; sys_platform == 'win32'

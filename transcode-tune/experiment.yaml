@@ -1,0 +1,35 @@
+# 转码参数调优实验配置
+# 使用方法: python transcode_tune.py --config experiment.yaml
+
+# JSON模板路径
+template: ./base-template.json
+
+# 转码服务API地址
+api_url: http://localhost:8080/api/transcode
+
+# 参考视频（用于PSNR/VMAF对比）
+reference_video: ./ref_video.mp4
+
+# 要调优的参数及其候选值
+params:
+  encoder.x264.bitrate: [2000, 3000, 4000]
+  encoder.x264.crf: [18, 23, 28]
+  encoder.x264.maxrate: [2500, 3500, 4500]
+  encoder.x264.bufsize: [5000, 8000]
+
+# 远程服务器配置
+remote:
+  host: 192.168.1.100
+  user: transcode
+  output_dir: /data/transcode/output
+
+# 优化目标
+targets:
+  bitrate_avg: 3500           # 目标平均码率 (kbps)
+  bitrate_max: 5000           # 码率极值上限
+  bitrate_tolerance: 200      # 码率允许偏差
+
+# 质量评估指标
+metrics:
+  - psnr
+  - vmaf

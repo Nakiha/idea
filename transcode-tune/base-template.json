@@ -1,0 +1,25 @@
+{
+  "input": "s3://bucket/input/video.mp4",
+  "output": "s3://bucket/output/video_transcoded.mp4",
+  "encoder": {
+    "type": "x264",
+    "x264": {
+      "bitrate": 3000,
+      "crf": 23,
+      "maxrate": 3500,
+      "bufsize": 5000,
+      "preset": "medium",
+      "profile": "high",
+      "level": "4.0"
+    }
+  },
+  "audio": {
+    "codec": "aac",
+    "bitrate": 128
+  },
+  "container": "mp4",
+  "options": {
+    "faststart": true,
+    "overwrite": true
+  }
+}
